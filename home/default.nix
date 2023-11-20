@@ -21,8 +21,8 @@
   };
 
   home.shellAliases = {
-          g = "git";
-      };
+    g = "git";
+  };
 
   home.file.".ideavimrc" = {
     text = ''
