@@ -5,6 +5,7 @@
     ./fish.nix
     ./prompt.nix
     ./shell.nix
+    ./vscode.nix
   ];
 
 
