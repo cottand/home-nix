@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+  home.packages = [ pkgs.nil ];
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
@@ -23,7 +24,7 @@
       "workbench.colorTheme" = "Default Dark Modern";
       "update.mode" = "none";
       "files.autoSave" = "onFocusChange";
-      "editor.fontFamily" = "'Fira Code Nerd Font', 'Menlo, Monaco, 'Courier New', monospace";
+      "editor.fontFamily" = "Fira Code Nerd Font, Menlo, Monaco, 'Courier New', monospace";
 
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nil";
