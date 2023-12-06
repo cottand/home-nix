@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  home.packages = [ pkgs.nil ];
+  # for use within config
+  home.packages = [ pkgs.nil pkgs.nixpkgs-fmt ];
+
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
