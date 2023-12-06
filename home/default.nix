@@ -1,28 +1,12 @@
-{ pkgs, lib, ... }: {
+{ ... }: {
 
   imports = [
     ./gnome-dconf.nix
     ./fish.nix
+    ./prompt.nix
+    ./shell.nix
   ];
 
-  programs.git = {
-    enable = true;
-    userName = "Cottand";
-    userEmail = "nico.dc@outlook.com";
-    aliases = {
-      ac = "!git add . && git commit -m";
-      co = "checkout";
-      s = "status";
-      ps = "push";
-      pl = "pull";
-      d = "diff";
-      yolo = "commit --amend -a --no-edit";
-    };
-  };
-
-  home.shellAliases = {
-    g = "git";
-  };
 
   home.file.".ideavimrc" = {
     text = ''
@@ -35,8 +19,6 @@
 
       " Don't use Ex mode, use Q for formatting.
       map Q gq
-
-
 
       "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
       map gf <Action>(ReformatCode)
