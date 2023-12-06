@@ -31,7 +31,7 @@
 
       # settings for 'nil' LSP
       "nix.serverSettings"."nil"."formatting"."command" = [ "nixpkgs-fmt" ];
-      "python.envFile" = "${workspaceRoot}/.env";
+      "python.envFile" = "\${workspaceRoot}/.env";
       "python.linting.flake8Enabled" = true;
       "python.linting.pylintEnabled" = false;
       "python.linting.mypyEnabled" = true;
