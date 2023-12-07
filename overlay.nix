@@ -1,8 +1,8 @@
-final: prev:
 # https://nixos.wiki/wiki/Overlays
+inputs:
+final: prev:
 let
-  master = import (builtins.fetchTarball "https://api.github.com/repos/nixos/nixpkgs/tarball/master") pkgs-config;
-  unstable = import (builtins.fetchTarball "https://api.github.com/repos/nixos/nixpkgs/tarball/nixos-unstable") pkgs-config;
+  unstable = import inputs.nixpkgs-unstable pkgs-config;
   pkgs-config = {
     config.allowUnfree = true;
     system = prev.system;
@@ -10,7 +10,7 @@ let
 in
 {
   # absolute latest nomad
-  nomad_1_6 = master.nomad_1_6;
+  nomad_1_6 = unstable.nomad_1_6;
 
   # nix language server
   nixd = unstable.nixd;
