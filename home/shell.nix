@@ -11,6 +11,7 @@
       ps = "push";
       pl = "pull";
       d = "diff";
+      f = "fetch";
       yolo = "commit --amend -a --no-edit";
     };
   };
