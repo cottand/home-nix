@@ -11,6 +11,8 @@ in
 {
   # absolute latest nomad
   nomad_1_6 = unstable.nomad_1_6;
+  nomad_1_7 = unstable.nomad_1_7;
+  nomad = final.nomad_1_7;
 
   # nix language server
   nixd = unstable.nixd;
