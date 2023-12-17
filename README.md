@@ -1,6 +1,9 @@
 # Home Nix
 
-This is a small repo with my dotfiles (configured as a Nix [Home Manager](https://nix-community.github.io/home-manager/) module) and some Nix utilities.
+This is a repo with 
+ - my dotfiles [in `home/`](home/) (configured as a Nix [Home Manager](https://nix-community.github.io/home-manager/) module)
+ - my laptop's NixOS config [in `nixos/`](nixos/)
+ - an overlay with packages I often use [in `overlay.nix`](overlay.nix)
 
 Usage:
 

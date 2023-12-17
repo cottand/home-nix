@@ -1,14 +1,4 @@
-{ ... }: {
-
-  imports = [
-    ./gnome-dconf.nix
-    ./fish.nix
-    ./prompt.nix
-    ./shell.nix
-    ./vscode.nix
-  ];
-
-
+{
   home.file.".ideavimrc" = {
     text = ''
       " Show a few lines of context around the cursor. Note that this makes the
@@ -33,5 +23,4 @@
     '';
   };
 
-  home.stateVersion = "22.11";
 }
