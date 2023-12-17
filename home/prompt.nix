@@ -17,7 +17,7 @@
       };
 
       # https://starship.rs/config/#aws
-      aws.disabled = true;
+      # aws.disabled = false;
 
       # sets nerd font symbols in prompt - see https://starship.rs/presets/nerd-font.html
       aws.symbol = "  ";
