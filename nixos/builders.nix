@@ -1,4 +1,4 @@
-{ nodes, ... }:
+{ ... }:
 
 {
   # emulate ARM - see https://colmena.cli.rs/unstable/examples/multi-arch.html
@@ -19,6 +19,7 @@
       eligible = with builtins; attrValues (mapAttrs (name: system: { inherit name system; }) {
         maco = x86_64;
         cosmo = x86_64;
+        ari = x86_64;
         miki = arm;
       });
     in

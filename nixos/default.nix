@@ -84,7 +84,13 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix = {
+    settings.experimental-features = [ "nix-command" "flakes" ];
+    gc.automatic = true;
+    gc.options = "--delete-older-than 30d";
+  };
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

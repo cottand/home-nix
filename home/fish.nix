@@ -5,8 +5,8 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
-      export EDITOR="vim"
-      export SHELL="fish"
+      export EDITOR="${pkgs.vim}/bin/vim"
+      export SHELL="${pkgs.fish}/bin/fish"
     '';
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
