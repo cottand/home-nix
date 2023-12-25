@@ -38,7 +38,7 @@
 
     nixosModules = {
       uploadToSeaweedPostBuild = { ... }: {
-        nix.extraOptions = "post-build-hook = ./etc/nix/upload-to-cache.sh;";
+        nix.extraOptions = "post-build-hook = /etc/nix/upload-to-cache.sh;";
         environment.etc."nix/scripts/upload-to-cache.sh".source = ./scripts/upload-to-cache.sh;
       };
     };
