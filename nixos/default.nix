@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports =
@@ -80,8 +80,6 @@
     updater.enable = true;
   };
 
-  programs.adb.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -101,10 +99,13 @@
     gparted
     gh
     git
-    colmena
     nomad_1_7
     scrcpy # android screen sharing
     gnome3.gnome-tweaks
+
+    nixVersions.unstable
+
+    inputs.colmena.packages.x86_64-linux.colmena
   ];
 
   fonts.packages = with pkgs; [
@@ -113,13 +114,11 @@
 
   virtualisation.docker.enable = true;
 
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  # services.openssh.enable = true;
 
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  # networking.firewall.allowedTCPPorts = [ 22 ];
 
   system.stateVersion = "22.11"; # Did you read the comment?
 

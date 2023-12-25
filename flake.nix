@@ -1,21 +1,28 @@
 {
   description = "Nico's dotfiles and Nix goodies";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/master";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager";
+      # url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    colmena = {
+      url = "github:zhaofengli/colmena";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.stable.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, ... }: {
-    # convenience overlay with what I usually use
+    # convenience overlay with what I usually usehttps://gitlab.gnome.org/GNOME/mutter/-/commit/3ac82a58c51a5c8db6b49e89a1232f99c79644cc.patch
     overlay = (import ./overlay.nix) inputs;
 
     homeManagerModules.gui.imports = [
@@ -31,8 +38,9 @@
 
     # my laptop's config - I use colmena rather than nixos-rebuild because I like the CLI c: 
     colmena = {
-      meta.nixpkgs = import nixpkgs {
-        system = "x86_64-linux";
+      meta = {
+        nixpkgs = import nixpkgs { system = "x86_64-linux"; };
+        specialArgs.inputs = inputs;
       };
       nico-xps = { name, ... }: {
         nixpkgs = {

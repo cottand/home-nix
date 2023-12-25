@@ -19,4 +19,25 @@ in
 
   # jetbrains IDEs
   jetbrains = unstable.jetbrains;
+
+  # gnome = prev.gnome.overrideScope' (pself: psuper: {
+  #   mutter = psuper.mutter.overrideAttrs (oldAttrs: {
+  #     src = prev.fetchurl {
+  #       url = "https://gitlab.gnome.org/vanvugt/mutter/-/archive/triple-buffering-v4/mutter-triple-buffering-v4.tar.gz?sha=51f96d2a7b8128fb0b674aaeadc8d082145e73aa";
+  #       # url = ""
+  #       hash = "sha256-O7mqzU8qlclY70pDy9hAryIeOzrNlDjPm9NUzL/Ltq4=";
+  #     };
+  #   });
+  # });
+  # gnome = prev.gnome.overrideScope' (pself: psuper: {
+  #   mutter = psuper.mutter.overrideAttrs (oldAttrs: {
+  #     patches = (oldAttrs.patches or [ ]) ++ [
+  #       (prev.fetchpatch {
+  #         url = "https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1441.patch";
+  #         hash = "sha256-5r4UP4njxrfRebItzQBPrTKaPUzkWA+9727YdWgBCpA=";
+  #         # revert = true;
+  #       })
+  #     ];
+  #   });
+  # });
 }
