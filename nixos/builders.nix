@@ -45,4 +45,9 @@
   nix.extraOptions = ''
     		builders-use-substitutes = true
     	'';
+
+  #       post-build-hook = ./etc/nix/upload-to-cache.sh;
+  # environment.etc = {
+  #     "nix/scripts/upload-to-cache.sh".source = ../scripts/upload-to-cache.sh;
+  #   };
 }

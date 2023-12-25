@@ -87,7 +87,16 @@
     settings.experimental-features = [ "nix-command" "flakes" ];
     gc.automatic = true;
     gc.options = "--delete-older-than 30d";
+    gc.dates = "weekly";
+    optimise.automatic = true;
+    settings = {
+      auto-optimise-store = true;
+      allowed-users = [ "@wheel" ];
+      trusted-users = [ "root" "@wheel" ];
+    };
+
   };
+
 
 
   # List packages installed in system profile. To search, run:

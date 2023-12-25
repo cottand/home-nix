@@ -16,19 +16,23 @@
   #     });
   #   })
   # ];
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
+  # (naming is legacy)
   services.xserver = {
+    # Enable the GNOME Desktop Environment.
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+
+    # Configure keymap in X11
     layout = "gb";
     xkbVariant = "";
   };
+
+  #   programs.hyprland = {
+  #   enable = true;
+  #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  #   xwayland.enable = true;
+  # };
 
   # pipewire
   security.rtkit.enable = true;
@@ -74,10 +78,10 @@
     gnome.dconf-editor
 
     (makeAutostartItem { name = "guake"; package = guake; })
+
     gnomeExtensions.vitals
     # gnomeExtensions.useless-gaps
     gnomeExtensions.wireless-hid
-
     gnomeExtensions.unite
 
     # sound

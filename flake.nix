@@ -36,6 +36,13 @@
       ./home/shell.nix
     ];
 
+    nixosModules = {
+      uploadToSeaweedPostBuild = { ... }: {
+        nix.extraOptions = "post-build-hook = ./etc/nix/upload-to-cache.sh;";
+        environment.etc."nix/scripts/upload-to-cache.sh".source = ./scripts/upload-to-cache.sh;
+      };
+    };
+
     # my laptop's config - I use colmena rather than nixos-rebuild because I like the CLI c: 
     colmena = {
       meta = {
@@ -60,6 +67,7 @@
         networking.hostName = name;
         imports = [
           ./nixos
+          self.nixosModules.uploadToSeaweedPostBuild
           nixos-hardware.nixosModules.dell-xps-13-9300
           home-manager.nixosModules.home-manager
           {
