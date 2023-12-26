@@ -40,6 +40,6 @@ in
     })
     //
     (mkIf cfg.useSubstituter {
-      nix.settings.substituters = [ "s3://nix-cache?profile=cache-upload&endpoint=seaweedfs-filer-s3.traefik&scheme=http" ];
+      nix.settings.substituters = [ cfg.cacheUrl ];
     });
 }
