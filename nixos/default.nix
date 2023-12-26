@@ -94,7 +94,6 @@
       allowed-users = [ "@wheel" ];
       trusted-users = [ "root" "@wheel" ];
     };
-
   };
 
 
@@ -114,7 +113,7 @@
 
     nixVersions.unstable
 
-    inputs.colmena.packages.x86_64-linux.colmena
+    colmena
   ];
 
   fonts.packages = with pkgs; [

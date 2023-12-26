@@ -21,8 +21,8 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, ... }: {
-    # convenience overlay with what I usually usehttps://gitlab.gnome.org/GNOME/mutter/-/commit/3ac82a58c51a5c8db6b49e89a1232f99c79644cc.patch
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, colmena, ... }: {
+    # convenience overlay with what I usually use 
     overlay = (import ./overlay.nix) inputs;
 
     homeManagerModules.gui.imports = [
@@ -36,25 +36,16 @@
       ./home/shell.nix
     ];
 
-    nixosModules = {
-      uploadToSeaweedPostBuild = { ... }: {
-        nix.extraOptions = "post-build-hook = /etc/nix/upload-to-cache.sh;";
-        environment.etc."nix/scripts/upload-to-cache.sh".source = ./scripts/upload-to-cache.sh;
-      };
-    };
+    nixosModules.seaweedBinaryCache = ./modules/seaweedBinaryCache.nix;
 
     # my laptop's config - I use colmena rather than nixos-rebuild because I like the CLI c: 
     colmena = {
-      meta = {
-        nixpkgs = import nixpkgs { system = "x86_64-linux"; };
-        specialArgs.inputs = inputs;
+      meta.nixpkgs = import nixpkgs {
+        system = "x86_64-linux";
+        overlays = [ self.overlay colmena.overlay ];
+        config.allowUnfree = true;
       };
       nico-xps = { name, ... }: {
-        nixpkgs = {
-          overlays = [ self.overlay ];
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
         deployment = {
           # Allow local deployment with `colmena apply-local`
           allowLocalDeployment = true;
@@ -67,7 +58,10 @@
         networking.hostName = name;
         imports = [
           ./nixos
-          self.nixosModules.uploadToSeaweedPostBuild
+          self.nixosModules.seaweedBinaryCache
+          {
+            cottand.seaweedBinaryCache.useSubstituter = true;
+          }
           nixos-hardware.nixosModules.dell-xps-13-9300
           home-manager.nixosModules.home-manager
           {
