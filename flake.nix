@@ -37,6 +37,8 @@
     ];
 
     nixosModules.seaweedBinaryCache = ./modules/seaweedBinaryCache.nix;
+    nixosModules.dcottaRootCa = ./modules/dcottaCa.nix;
+    nixosModules.all = { imports = with self.nixosModules; [ seaweedBinaryCache dcottaRootCa ]; };
 
     # my laptop's config - I use colmena rather than nixos-rebuild because I like the CLI c: 
     colmena = {
@@ -58,7 +60,7 @@
         networking.hostName = name;
         imports = [
           ./nixos
-          self.nixosModules.seaweedBinaryCache
+          self.nixosModules.all
           {
             cottand.seaweedBinaryCache.useSubstituter = true;
           }
