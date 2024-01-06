@@ -67,15 +67,17 @@
           nixos-hardware.nixosModules.dell-xps-13-9300
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.cottand = {
-              imports = with self.homeManagerModules; [ cli gui ];
-              home.stateVersion = "22.11";
-            };
-            home-manager.users.root = {
-              imports = with self.homeManagerModules; [ cli ];
-              home.stateVersion = "22.11";
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.cottand = {
+                imports = with self.homeManagerModules; [ cli gui ];
+                home.stateVersion = "22.11";
+              };
+              users.root = {
+                imports = with self.homeManagerModules; [ cli ];
+                home.stateVersion = "22.11";
+              };
             };
           }
         ];
