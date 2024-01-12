@@ -2,7 +2,7 @@
 
 {
   # for use within config
-  home.packages = [ pkgs.nil pkgs.nixpkgs-fmt pkgs.terraform ];
+  home.packages = [ pkgs.nil pkgs.nixpkgs-fmt ];
 
   programs.vscode = {
     enable = true;
