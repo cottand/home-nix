@@ -15,5 +15,4 @@
     fontDir.enable = true;
     fonts = with pkgs; [ dejavu_fonts fira-code-nerdfont ];
   };
-
 }

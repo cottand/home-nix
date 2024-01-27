@@ -2,7 +2,7 @@
 
 {
   # for use within config
-  home.packages = [ pkgs.nil pkgs.nixpkgs-fmt ];
+  home.packages = [ pkgs.nil pkgs.nixpkgs-fmt pkgs.gh ];
 
   programs.vscode = {
     enable = true;

@@ -24,7 +24,6 @@
 
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 
-
   system.stateVersion = 4;
 
   nixpkgs.config.allowUnfree = true;
