@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     colmena = {
       url = "github:zhaofengli/colmena";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,6 +31,7 @@
     overlay = (import ./overlay.nix) inputs;
 
     homeManagerModules.gui.imports = [
+      ./home/casual.nix
       ./home/vscode.nix
       ./home/gnome-dconf.nix
       ./home/ideavim.nix
@@ -36,9 +42,37 @@
       ./home/shell.nix
     ];
 
+
+
+    darwinConfigurations."Nicos-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./darwin
+        home-manager.darwinModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.nico = {
+              imports = with self.homeManagerModules; [ cli gui ];
+              home.stateVersion = "23.11";
+              home.username = "nico";
+              home.homeDirectory = "/Users/nico";
+            };
+          };
+        }
+        {
+          nixpkgs.hostPlatform = "aarch64-darwin";
+          users.users."nico".home = "/Users/nico";
+        }
+      ];
+    };
+
+
     nixosModules.seaweedBinaryCache = ./modules/seaweedBinaryCache.nix;
     nixosModules.dcottaRootCa = ./modules/dcottaCa.nix;
     nixosModules.all = { imports = with self.nixosModules; [ seaweedBinaryCache dcottaRootCa ]; };
+
 
     # my laptop's config - I use colmena rather than nixos-rebuild because I like the CLI c: 
     colmena = {

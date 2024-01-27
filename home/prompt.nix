@@ -3,6 +3,7 @@
     enable = true;
     enableFishIntegration = true;
     settings = rec {
+      command_timeout = 1200;
       package.disabled = true;
 
       git_branch.style = "bold green";
