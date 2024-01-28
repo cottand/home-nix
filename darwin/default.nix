@@ -4,8 +4,7 @@
   ];
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages =
-    [
+  environment.systemPackages = [
       pkgs.vim
       pkgs.iterm2
       pkgs.git

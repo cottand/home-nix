@@ -2,7 +2,7 @@
 
 {
   # emulate ARM - see https://colmena.cli.rs/unstable/examples/multi-arch.html
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   programs.ssh.extraConfig = ''
     Host *.mesh.dcotta.eu

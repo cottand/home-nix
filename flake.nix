@@ -35,7 +35,6 @@
       overlay = (import ./overlay.nix) inputs;
       homeManagerModules = {
         gui.imports = [
-          ./home/casual.nix
           ./home/vscode.nix
           ./home/gnome-dconf.nix
           ./home/ideavim.nix
@@ -60,17 +59,23 @@
       # my laptop's config - I use colmena rather than nixos-rebuild because I like the CLI c: 
       colmena = {
         meta.nixpkgs = import nixpkgs {
+          system = "aarch64-linux";
+        };
+        meta.specialArgs = { inherit inputs; };
+        meta.nodeNixpkgs.nixo-xps = import nixpkgs {
           system = "x86_64-linux";
           overlays = [ self.overlay colmena.overlay ];
           config.allowUnfree = true;
         };
+        meta.nodeNixpkgs.nixosBuilder = import nixpkgs {
+          system = "aarch64-linux";
+          overlays = [ self.overlay colmena.overlay ];
+          config.allowUnfree = true;
+        };
+
         nico-xps = { name, ... }: {
           deployment = {
-            # Allow local deployment with `colmena apply-local`
             allowLocalDeployment = true;
-
-            # Disable SSH deployment. This node will be skipped in a
-            # normal`colmena apply`.
             targetHost = null;
             replaceUnknownProfiles = true;
           };
@@ -80,21 +85,22 @@
             self.nixosModules.all
             nixos-hardware.nixosModules.dell-xps-13-9300
             home-manager.nixosModules.home-manager
-            {
-              cottand.seaweedBinaryCache.useSubstituter = true;
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.cottand = {
-                  imports = with self.homeManagerModules; [ cli gui ];
-                  home.stateVersion = "22.11";
-                };
-                users.root = {
-                  imports = with self.homeManagerModules; [ cli ];
-                  home.stateVersion = "22.11";
-                };
-              };
-            }
+          ];
+        };
+
+        nixosBuilder = { name, ... }: {
+          deployment = {
+            # allowLocalDeployment = true;
+            targetHost = "192.168.64.2";
+            replaceUnknownProfiles = true;
+            buildOnTarget = true;
+          };
+          networking.hostName = name;
+          imports = [
+            ./machines/nixosBuilder/default.nix
+            ./nixos
+            self.nixosModules.all
+            home-manager.nixosModules.home-manager
           ];
         };
       };

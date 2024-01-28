@@ -1,10 +1,19 @@
 { config, pkgs, lib, ... }:
 {
 
+  nix = {
+    settings.experimental-features = [ "nix-command" "flakes" ];
+    gc.automatic = true;
+    gc.options = "--delete-older-than 30d";
+    gc.dates = "weekly";
+    optimise.automatic = true;
+    settings = {
+      auto-optimise-store = true;
+      allowed-users = [ "@wheel" ];
+      trusted-users = [ "root" "@wheel" ];
+    };
+  };
 
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 30d";
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   swapDevices = [{
     device = "/var/lib/swapfile";
@@ -12,8 +21,10 @@
   }];
 
   nixpkgs.config.allowUnfree = true;
+
   services.openssh.enable = true;
   services.sshguard.enable = true;
+
   networking.enableIPv6 = true;
   programs.zsh.enable = true;
 
@@ -24,24 +35,15 @@
     plugins = [ "git" "sudo" "docker" "systemadmin" ];
   };
 
-  users.users."cottand".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGes99PbsDcHDl3Jwg4GYqYRkzd6tZPH4WX4/ThP//BN"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPJ7FM2wEuWoUuxRkWnP6PNEtG+HOcwcZIt6Qg/Y1jhk nico.dc@outlook.com"
-    # nico-xps key
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF3AKGuE56RZiMURZ4ygV/BrSwrq6Ozp46VVm30PouPQ"
-  ];
-
   users.users.root.shell = pkgs.fish;
 
   users.users.root.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPJ7FM2wEuWoUuxRkWnP6PNEtG+HOcwcZIt6Qg/Y1jhk nico.dc@outlook.com"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF3AKGuE56RZiMURZ4ygV/BrSwrq6Ozp46VVm30PouPQ"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHcVLH2EH/aAkul8rNWrDoBTjUTL3Y+6vvlVw5FSh8Gt nico.dc@outlook.com-m3"
   ];
 
   environment.systemPackages = with pkgs; [
     wireguard-tools
     python3 # required for sshuttle
-    seaweedfs # makes 'weed' bin available
     pciutils # for setpci, lspci
     dig
     iw
@@ -51,24 +53,6 @@
     nmap
     traceroute
   ];
-
-  # Set your time zone.
-  time.timeZone = lib.mkDefault "Europe/London";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
 
   # Configure keymap in X11
   services.xserver = {

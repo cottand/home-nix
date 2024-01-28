@@ -1,5 +1,5 @@
-{ pkgs, ...}: {
-  dconf.settings = if !pkgs.stdenv.isLinux then {} else {
+{ pkgs, config, ...}: {
+  dconf.settings = if !(pkgs.stdenv.isLinux) then {} else {
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
     };

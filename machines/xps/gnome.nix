@@ -1,21 +1,6 @@
 { config, pkgs, ... }:
 {
 
-  # nixpkgs.overlays = [
-  #   (self: super: {
-  #     gnome = super.gnome.overrideScope' (pself: psuper: {
-  #       mutter = psuper.mutter.overrideAttrs (oldAttrs: {
-  #         patches = (oldAttrs.patches or [ ]) ++ [
-  #           (super.fetchpatch {
-  #             url = "https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1441.patch";
-  #             hash = "sha256-5r4UP4njxrfRebItzQBPrTKaPUzkWA+9727YdWgBCpA=";
-  #             # revert = true;
-  #           })
-  #         ];
-  #       });
-  #     });
-  #   })
-  # ];
   # (naming is legacy)
   services.xserver = {
     # Enable the GNOME Desktop Environment.
@@ -41,8 +26,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
   };
 
   environment.gnome.excludePackages = (with pkgs; [
