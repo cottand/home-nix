@@ -13,6 +13,13 @@
     };
   };
 
+  # assumes rosetta
+  nix.extraOptions = ''
+    extra-platforms = x86_64-darwin aarch64-darwin
+  '';
+  # starts a VM!
+  # nix.linux-builder.enable = true;
+
 
   nixpkgs.hostPlatform = "aarch64-darwin";
   users.users."nico".home = "/Users/nico";
