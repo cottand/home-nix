@@ -1,6 +1,7 @@
 { inputs, modules, ... }: {
   imports = [
     inputs.home-manager.darwinModules.home-manager
+    ./brew.nix
   ];
   home-manager = {
     useGlobalPkgs = true;

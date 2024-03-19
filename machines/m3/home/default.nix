@@ -6,6 +6,8 @@
 
     spotify
 
+    monitorcontrol
+
     utm
   ];
 }

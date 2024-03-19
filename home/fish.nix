@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 
-  home.packages = [ pkgs.grc ];
+  home.packages = with pkgs; [ grc jq vim ];
   programs.fish = {
     enable = true;
     interactiveShellInit = ''

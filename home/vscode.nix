@@ -43,7 +43,8 @@
         "editor.tabSize" = 2;
       };
       "[hcl]" = {
-        "editor.defaultFormatter" = "Vehmloewff.custom-format";
+        "editor.defaultFormatter" = "hashicorp.hcl";
+      #   "editor.defaultFormatter" = "Vehmloewff.custom-format";
         "editor.formatOnSave" = true;
         "editor.formatOnSaveMode" = "file";
       };
