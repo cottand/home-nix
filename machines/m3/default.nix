@@ -2,6 +2,8 @@
   imports = [
     inputs.home-manager.darwinModules.home-manager
     ./brew.nix
+    ./builders.nix
+    ./nixbuildnet.nix
   ];
   home-manager = {
     useGlobalPkgs = true;
@@ -19,7 +21,8 @@
     extra-platforms = x86_64-darwin aarch64-darwin
   '';
   # starts a VM!
-  # nix.linux-builder.enable = true;
+  nix.linux-builder.enable = true;
+  nix.settings.trusted-users = [ "nico" "@admin" ];
 
 
   nixpkgs.hostPlatform = "aarch64-darwin";

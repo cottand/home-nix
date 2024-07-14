@@ -66,6 +66,8 @@
       "window.titleBarStyle" = "custom";
       "explorer.confirmDelete" = false;
       "workbench.editor.empty.hint" = "hidden";
+
+      "editor.experimental.stickyScroll.enabled" = true;
     };
   };
 }
