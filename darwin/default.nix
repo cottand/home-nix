@@ -17,7 +17,7 @@
   nix = {
     package = pkgs.nix;
     settings.experimental-features = "nix-command flakes";
-    settings.auto-optimise-store = true;
+    settings.auto-optimise-store = false;
   };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
