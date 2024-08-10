@@ -10,6 +10,8 @@
     pkgs.git
     pkgs.python311Packages.pip
     pkgs.rectangle
+
+    (pkgs.callPackage ./packages/vfkit.nix {})
   ];
 
   # Auto upgrade nix package and the daemon service.
