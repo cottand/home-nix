@@ -11,7 +11,7 @@
     pkgs.python311Packages.pip
     pkgs.rectangle
 
-    (pkgs.callPackage ./packages/vfkit.nix {})
+    (pkgs.callPackage ./packages/vfkit.nix { })
   ];
 
   # Auto upgrade nix package and the daemon service.
@@ -20,6 +20,11 @@
     package = pkgs.nix;
     settings.experimental-features = "nix-command flakes";
     settings.auto-optimise-store = false;
+
+    registry."nixpkgs".to = {
+      path = toString inputs.nixpkgs;
+      type = "path";
+    };
   };
 
   # Create /etc/zshrc that loads the nix-darwin environment.

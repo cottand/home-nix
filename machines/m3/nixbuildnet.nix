@@ -1,27 +1,27 @@
 { ... }: {
-  environment.etc."ssh/ssh_config.d/300-nixbuild.conf".text = ''
+  environment.etc."ssh/ssh_config.d/20-nixbuild.conf".text = ''
     Host eu.nixbuild.net
+      User root
       PubkeyAcceptedKeyTypes ssh-ed25519
       ServerAliveInterval 60
       IPQoS throughput
-      IdentityFile /Users/nico/.ssh/id_ed25519
+      IdentityFile /Users/nico/.ssh/nico-nixbuild-net
   '';
 
-  programs.ssh.knownHosts = {
-    nixbuild = {
-      hostNames = [ "eu.nixbuild.net" ];
-      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPIQCZc54poJ8vqawd8TraNryQeJnvH1eLpIDgbiqymM";
-    };
-  };
-
   nix = {
+    # replace on builder
+    extraOptions = ''
+      builders-use-substitutes = true
+    '';
     distributedBuilds = true;
     buildMachines = [
       {
         hostName = "eu.nixbuild.net";
+        protocol = "ssh";
         system = "x86_64-linux";
-        sshKey = "/Users/nico/.ssh/id_ed25519";
-        maxJobs = 10;
+        sshKey = "/Users/nico/.ssh/nico-nixbuild-net";
+        sshUser = "root";
+        maxJobs = 8;
         supportedFeatures = [ "benchmark" "big-parallel" ];
       }
     ];

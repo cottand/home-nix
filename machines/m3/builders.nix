@@ -8,7 +8,7 @@ let
     # cosmo = x86_64;
     # ari = x86_64;
     # xps2 = x86_64;
-    miki = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSURObWcwYTVJZVFlOHNvOERza1JTbWFld0hzY0Y1L2lvYUNhYWhJZ1JkbzMgcm9vdEB2bWkxNzI2OTc0Cg==";
+#    miki = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSURObWcwYTVJZVFlOHNvOERza1JTbWFld0hzY0Y1L2lvYUNhYWhJZ1JkbzMgcm9vdEB2bWkxNzI2OTc0Cg==";
   });
 in
 {

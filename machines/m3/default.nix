@@ -22,9 +22,13 @@
   '';
   # starts a VM!
   nix.linux-builder.enable = true;
-  nix.settings.trusted-users = [ "nico" "@admin" ];
+  nix.linux-builder.ephemeral = true;
+  nix.settings.trusted-users = [ "root" "nico" "@admin" ];
 
 
   nixpkgs.hostPlatform = "aarch64-darwin";
   users.users."nico".home = "/Users/nico";
+
+  # we use the app instead
+  # services.tailscale.enable = false;
 }
