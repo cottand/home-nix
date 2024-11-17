@@ -29,6 +29,10 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
   users.users."nico".home = "/Users/nico";
 
+  security.pki.certificateFiles =
+   let selfhosed = builtins.getFlake "github:cottand/selfhosted/c8fdca6a320a68fc724c058050791fe90320dd2a"; in
+    [ "${selfhosed}/certs/root_2024_ca.crt" ];
+
   # we use the app instead
   # services.tailscale.enable = false;
 }
