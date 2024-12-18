@@ -11,7 +11,7 @@
   nix = {
     # replace on builder
     extraOptions = ''
-      builders-use-substitutes = true
+      builders-use-substitutes = false
     '';
     distributedBuilds = true;
     buildMachines = [

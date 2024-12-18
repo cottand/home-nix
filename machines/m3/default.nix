@@ -1,4 +1,4 @@
-{ inputs, modules, ... }: {
+{ inputs, modules, pkgs, ... }: {
   imports = [
     inputs.home-manager.darwinModules.home-manager
     ./brew.nix
@@ -24,13 +24,14 @@
   nix.linux-builder.enable = true;
   nix.linux-builder.ephemeral = true;
   nix.settings.trusted-users = [ "root" "nico" "@admin" ];
+  nix.optimise.automatic = false;
 
 
   nixpkgs.hostPlatform = "aarch64-darwin";
   users.users."nico".home = "/Users/nico";
 
   security.pki.certificateFiles =
-   let selfhosed = builtins.getFlake "github:cottand/selfhosted/c8fdca6a320a68fc724c058050791fe90320dd2a"; in
+    let selfhosed = builtins.getFlake "github:cottand/selfhosted/c8fdca6a320a68fc724c058050791fe90320dd2a"; in
     [ "${selfhosed}/certs/root_2024_ca.crt" ];
 
   # we use the app instead

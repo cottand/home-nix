@@ -19,6 +19,10 @@
 
       # https://starship.rs/config/#aws
       # aws.disabled = false;
+      gcloud.detect_env_vars = [ "CLOUDSDK_CONFIG" ];
+      golang.version_format = "v\${major}.\${minor}";
+
+      nix_shell.format = "via [$symbol\($name\)]($style) ";
 
       # sets nerd font symbols in prompt - see https://starship.rs/presets/nerd-font.html
       aws.symbol = "  ";
