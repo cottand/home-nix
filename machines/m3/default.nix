@@ -1,4 +1,4 @@
-{ inputs, modules, pkgs, ... }: {
+{ inputs, modules, lib, pkgs, ... }: {
   imports = [
     inputs.home-manager.darwinModules.home-manager
     ./brew.nix
@@ -25,6 +25,8 @@
   nix.linux-builder.ephemeral = true;
   nix.settings.trusted-users = [ "root" "nico" "@admin" ];
   nix.optimise.automatic = false;
+  # TODO will work once you bump nix
+  #   nix.settings.experimental-features = lib.mkForce "nix-command flakes pipe-operators";
 
 
   nixpkgs.hostPlatform = "aarch64-darwin";

@@ -12,6 +12,9 @@
     utm
     nicotine-plus
 
+    nixd
+    go
+
   ];
 
   home.shellAliases."tailscale" = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
