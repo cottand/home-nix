@@ -6,7 +6,7 @@
 
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
       jnoortheen.nix-ide
       hashicorp.terraform
@@ -29,7 +29,7 @@
 
     # be not afraid - this is JSON as a nix object, and corresponds to VSCode's settings.json
     # you can override it by setting `programs.vscode.userSettings.[setting] = lib.mkForce {}` yourself.
-    userSettings = {
+    profiles.default.userSettings = {
       "workbench.colorTheme" = "Default Dark Modern";
       "update.mode" = "none";
       "files.autoSave" = "onFocusChange";

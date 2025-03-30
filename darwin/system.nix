@@ -14,7 +14,7 @@
     finder.ShowPathbar = true;
   };
 
-  fonts.packages = with pkgs; [ dejavu_fonts fira-code-nerdfont ];
+  fonts.packages = with pkgs; [ dejavu_fonts nerd-fonts.fira-code ];
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 }

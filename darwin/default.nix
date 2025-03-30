@@ -1,6 +1,4 @@
 { inputs, pkgs, ... }:
-let oldNixpkgs = builtins.getFlake "github:nixos/nixpkgs/c128e44a249d6180740d0a979b6480d5b795c013";
-in
 {
   imports = [
     ./system.nix
@@ -17,11 +15,8 @@ in
     (pkgs.callPackage ./packages/vfkit.nix { })
   ];
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
   nix = {
-    # until https://github.com/NixOS/nixpkgs/pull/356133 lands
-    package = oldNixpkgs.legacyPackages.aarch64-darwin.nixVersions.nix_2_20;
+    enable = true;
     settings.experimental-features = "nix-command flakes";
     settings.auto-optimise-store = false;
     optimise.automatic = false;
