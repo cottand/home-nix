@@ -3,7 +3,6 @@
     idea-ultimate
     goland
     webstorm
-    zed-editor
 
     spotify
 
@@ -14,7 +13,7 @@
 
     nixd
     go
-
+    ollama
   ];
 
   home.shellAliases."tailscale" = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";

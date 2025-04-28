@@ -4,6 +4,9 @@
   # for use within config
   home.packages = [ pkgs.nil pkgs.nixpkgs-fmt pkgs.gh pkgs.gleam ];
 
+  programs.zed-editor = {
+    enable = true;
+  };
   programs.vscode = {
     enable = true;
     profiles.default.extensions = with pkgs.vscode-extensions; [
@@ -18,12 +21,12 @@
         version = "0.3.2";
         sha256 = "sha256-cxF3knYY29PvT3rkRS8SGxMn9vzt56wwBXpk2PqO0mo=";
       }
-#      {
-#        name = "Gleam";
-#        publisher = "Gleam";
-#        version = "2.10.0";
-#        sha256 = "sha256-Xlgtfo0d6gjYsfggNYHjUjsFB1y6/KPJeM3ZgEEBxXk=";
-#      }
+      #      {
+      #        name = "Gleam";
+      #        publisher = "Gleam";
+      #        version = "2.10.0";
+      #        sha256 = "sha256-Xlgtfo0d6gjYsfggNYHjUjsFB1y6/KPJeM3ZgEEBxXk=";
+      #      }
     ]
     ;
 
@@ -51,7 +54,7 @@
       };
       "[hcl]" = {
         "editor.defaultFormatter" = "hashicorp.hcl";
-      #   "editor.defaultFormatter" = "Vehmloewff.custom-format";
+        #   "editor.defaultFormatter" = "Vehmloewff.custom-format";
         "editor.formatOnSave" = true;
         "editor.formatOnSaveMode" = "file";
       };
