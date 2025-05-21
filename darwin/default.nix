@@ -25,6 +25,8 @@
       path = toString inputs.nixpkgs;
       type = "path";
     };
+
+    package = inputs.detsys-nix.packages.${pkgs.system}.nix;
   };
 
   # Create /etc/zshrc that loads the nix-darwin environment.

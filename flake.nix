@@ -15,6 +15,12 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # v3.5+ has lazy trees
+    # https://determinate.systems/posts/changelog-determinate-nix-352/
+    detsys-nix = {
+        url = "github:DeterminateSystems/nix-src";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, ... }:
