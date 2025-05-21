@@ -19,7 +19,7 @@
     # v3.5+ has lazy trees
     # https://determinate.systems/posts/changelog-determinate-nix-352/
     detsys-nix = {
-        url = "github:DeterminateSystems/nix-src";
+      url = "github:DeterminateSystems/nix-src";
     };
   };
 
@@ -34,6 +34,7 @@
           ./home/vscode.nix
           ./home/gnome-dconf.nix
           ./home/ideavim.nix
+          ./modules/darwinAppSymlink.nix
         ];
         cli.imports = [
           ./home/fish.nix

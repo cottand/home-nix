@@ -9,7 +9,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.nico = {
-      imports = with inputs.self.homeManagerModules; [ cli gui ./home (modules + /darwinAppSymlink.nix) ];
+      imports = with inputs.self.homeManagerModules; [ cli gui ./home ];
       home.stateVersion = "23.11";
       home.username = "nico";
       home.homeDirectory = "/Users/nico";
