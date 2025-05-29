@@ -5,21 +5,51 @@
       " text scroll if you mouse-click near the start or end of the window.
       set scrolloff=5
 
-      " Do incremental searching.
+      " Space is the leader
+      let mapleader = " "
+
       set incsearch
 
-      " Don't use Ex mode, use Q for formatting.
-      map Q gq
-
       "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-      map gf <Action>(ReformatCode)
+      map <leader>f <Action>(ReformatCode)
+      map <leader>d <Action>(Run)
+      map <leader>b <Action>(Git.Branches)
+      map <leader>r <Action>(RenameElement)
+      map <leader>i <Action>(Inline)
+      map <leader>F <Action>(GotoFile)
+      map <leader>A <Action>(GotoAction)
+      map <leader>ob <Action>(Github.Open.In.Browser)
+      map <leader>op <Action>(RecentProjectListGroup)
 
-      map gr <Action>(Run)
+
       "" Map \b to toggle the breakpoint on the current line
       "map \b <Action>(ToggleLineBreakpoint)
 
+      " Share clipboard with system
+      set clipboard+=unnamed
 
-      " Find more examples here: https://jb.gg/share-ideavimrc
+      " Ignore case by default when searching, unless any char is uppercase
+      set ignorecase
+      set smartcase
+      " Highlight search results
+      set hlsearch
+      " Do incremental searching.
+      set incsearch
+
+
+      set highlightedyank
+
+      " Requires plugin installed
+      set which-key
+
+      " which-key timeout=4s
+      set timeoutlen=4000
+      let g:WhichKey_ShowVimActions = "true"
+
+
+      " Find more examples here:
+      " - https://jb.gg/share-ideavimrc
+      " - https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
     '';
   };
 
