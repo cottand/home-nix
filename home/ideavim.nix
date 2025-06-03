@@ -13,13 +13,14 @@
       "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
       map <leader>f <Action>(ReformatCode)
       map <leader>d <Action>(Run)
-      map <leader>b <Action>(Git.Branches)
+
       map <leader>r <Action>(RenameElement)
       map <leader>i <Action>(Inline)
       map <leader>F <Action>(GotoFile)
       map <leader>A <Action>(GotoAction)
-      map <leader>ob <Action>(Github.Open.In.Browser)
+      map <leader>og <Action>(Github.Open.In.Browser)
       map <leader>op <Action>(RecentProjectListGroup)
+      map <leader>ob <Action>(Git.Branches)
 
 
       "" Map \b to toggle the breakpoint on the current line
