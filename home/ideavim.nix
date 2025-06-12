@@ -18,9 +18,13 @@
       map <leader>i <Action>(Inline)
       map <leader>F <Action>(GotoFile)
       map <leader>A <Action>(GotoAction)
+      map <leader>l <Action>(RecentLocations)
       map <leader>og <Action>(Github.Open.In.Browser)
       map <leader>op <Action>(RecentProjectListGroup)
       map <leader>ob <Action>(Git.Branches)
+
+      # live plugins for Monzo
+      map <leader>or <Action>(Go to request handler)
 
 
       "" Map \b to toggle the breakpoint on the current line
