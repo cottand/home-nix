@@ -15,6 +15,7 @@
       home.homeDirectory = "/Users/nico";
     };
   };
+  system.primaryUser = "nico";
 
   # assumes rosetta
   nix.extraOptions = ''
