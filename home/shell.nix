@@ -12,6 +12,8 @@
       pl = "pull";
       d = "diff";
       f = "fetch";
+      st = "stash";
+      sp = "stash pop";
       yolo = "commit --amend -a --no-edit";
     };
   };

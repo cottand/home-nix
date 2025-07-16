@@ -19,7 +19,7 @@
       no_out_background = "echo $argv '> /dev/null 2>&1'";
     };
     shellAbbrs = {
-      "rebuild" = "darwin-rebuild switch --flake ~/dev/cottand/home-nix";
+      "rebuild" = "sudo darwin-rebuild switch --flake ~/dev/cottand/home-nix";
       "~cottand" = "~/dev/cottand/";
       "!!" = {
         position = "anywhere";
