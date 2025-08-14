@@ -16,7 +16,6 @@
   };
 
   home.file.".claude/settings.json" = {
-    source = ../../dotfiles;
     text = builtins.toJSON {
       includeCoAuthoredBy = false;
       permissions = {
@@ -29,4 +28,6 @@
     };
     recursive = true;
   };
+
+  home.file.".claude/CLAUDE.md".source = ./CLAUDE.md;
 }
