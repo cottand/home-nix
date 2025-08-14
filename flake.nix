@@ -34,6 +34,7 @@
           ./home/vscode.nix
           ./home/gnome-dconf.nix
           ./home/ideavim.nix
+          ./home/claude.nix
           ./modules/darwinAppSymlink.nix
         ];
         cli.imports = [
