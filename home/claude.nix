@@ -4,15 +4,8 @@
       source ${./ask_claude.fish}
     '';
 
-    shellAbbrs."?" = {
-      position = "command";
-      function = "ask_claude";
-    };
-
-    shellAbbrs."ohno" = {
-      position = "command";
-      function = "fix_last_command";
-    };
+    shellAliases."?" = "ask_claude";
+    shellAliases."ohno" = "fix_last_command";
   };
 
   home.file.".claude/settings.json" = {

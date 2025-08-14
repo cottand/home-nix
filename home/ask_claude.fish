@@ -19,7 +19,7 @@ function ask_claude -d "Generate commands using Claude AI"
     set -l shell_type "fish"
 
     # Create a prompt that asks for shell commands
-    set -l full_prompt "Generate a shell command for $system_info using $shell_type shell. Only respond with the command, no explanation: $user_prompt"
+    set -l full_prompt "Generate a shell command for $system_info using $shell_type shell. Only respond with the command, no explanation or markdown formatting: $user_prompt"
 
     # Use claude -p to get the response
     set -l cmd (claude -p "$full_prompt")
