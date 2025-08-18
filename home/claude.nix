@@ -14,13 +14,24 @@
       permissions = {
         allow = [
           "Bash(git add:*)"
-          "Bash(gh pr create)"
+
+          "Bash(git checkout master)"
+          "Bash(git pull master:*)"
+
+          "Bash(gh pr create --draft :*)"
+          "Bash(gh pr diff:*)"
         ];
         deny = [ ];
       };
     };
-    recursive = true;
   };
+
+
+
+  home.file.".claude/agents/docs-librarian.md" = {
+    source = ./claude/docs-librarian.md;
+  };
+
 
   home.file.".claude/CLAUDE.md".source = ./CLAUDE.md;
 }

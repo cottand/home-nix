@@ -1,9 +1,9 @@
 # PRs
-- Run `gofmt -w ./$the_folder/*` on Go folders changed before opening a PR
 - Keep descriptions brief, no need to list all commits
 - Include in descriptions only changes 'before/after' the PR, as if the PR is a squashed commit. No need
 to describe iterations made within PR development
 - Always open PRs as drafts
+- Do not use a `Summary` header title in PR descriptions, and do not include a test plan
 
 # Code comments
 - Use comments sparingly, never write comments for trivial self-explanatory code
