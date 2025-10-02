@@ -27,11 +27,5 @@
   };
 
 
-
-  home.file.".claude/agents/docs-librarian.md" = {
-    source = ./claude/docs-librarian.md;
-  };
-
-
   home.file.".claude/CLAUDE.md".source = ./CLAUDE.md;
 }

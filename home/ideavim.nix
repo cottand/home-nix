@@ -22,6 +22,7 @@
       map <leader>og <Action>(Github.Open.In.Browser)
       map <leader>op <Action>(RecentProjectListGroup)
       map <leader>ob <Action>(Git.Branches)
+      map <leader>os <Action>(ActivateProjectToolWindow)
 
       # live plugins for Monzo
       map <leader>or <Action>(Go to request handler)
