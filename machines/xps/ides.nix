@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   users.users.cottand.packages = [
-    pkgs.jetbrains.idea-ultimate
+    pkgs.jetbrains.idea
     pkgs.jetbrains.goland
     pkgs.jetbrains.webstorm
     #pkgs.jetbrains.pycharm-professional
