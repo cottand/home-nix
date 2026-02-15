@@ -35,6 +35,11 @@
         setCursor = "!";
         expansion = "~/dev/cottand/!";
       };
+      "devh" = {
+        position = "anywhere";
+        setCursor = "!";
+        expansion = "~/dev/hightempo-io/dev/!";
+      };
     };
   };
 }

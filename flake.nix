@@ -45,7 +45,7 @@
       };
 
 
-      darwinConfigurations."Nicos-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
+      darwinConfigurations."Nicos-M3" = inputs.nix-darwin.lib.darwinSystem {
         specialArgs = { inherit inputs modules; };
         modules = [ ./machines/m3 ./darwin ];
       };

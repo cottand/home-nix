@@ -12,6 +12,8 @@
     nicotine-plus
     vlc-bin
 
+    prismlauncher
+
     nixd
     go
     ollama

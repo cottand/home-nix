@@ -5,7 +5,7 @@
   ];
   
   homebrew = {
-    enable = true;
+    enable = false;
     brews = [
       "cockroachdb/tap/cockroach"
     ];

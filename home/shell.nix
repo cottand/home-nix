@@ -2,9 +2,9 @@
 
   programs.git = {
     enable = true;
-    userName = "Cottand";
-    userEmail = "nico.dc@outlook.com";
-    aliases = {
+    settings.user.name = "Cottand";
+    settings.user.email = "nico.dc@outlook.com";
+    settings.alias = {
       ac = "!git add . && git commit -m";
       co = "checkout";
       s = "status";
@@ -14,11 +14,14 @@
       f = "fetch";
       st = "stash";
       sp = "stash pop";
+      br = "branch";
       yolo = "commit --amend -a --no-edit";
     };
   };
 
   home.shellAliases = {
     g = "git";
+    k = "kubectl";
+    p = "pulumi";
   };
 }

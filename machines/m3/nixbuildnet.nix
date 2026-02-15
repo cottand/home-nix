@@ -17,12 +17,21 @@
     buildMachines = [
       {
         hostName = "eu.nixbuild.net";
-        protocol = "ssh";
+       # protocol = "ssh";
         system = "x86_64-linux";
         sshKey = "/Users/nico/.ssh/nico-nixbuild-net";
         sshUser = "root";
-        maxJobs = 8;
-        supportedFeatures = [ "benchmark" "big-parallel" ];
+        maxJobs = 12;
+        supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
+      }
+      {
+        hostName = "eu.nixbuild.net";
+     #   protocol = "ssh";
+        system = "aarch64-linux";
+        sshKey = "/Users/nico/.ssh/nico-nixbuild-net";
+        sshUser = "root";
+        maxJobs = 12;
+        supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
       }
     ];
   };

@@ -22,7 +22,7 @@
     extra-platforms = x86_64-darwin aarch64-darwin
   '';
   # starts a VM!
-  nix.linux-builder.enable = true;
+  nix.linux-builder.enable = false;
   nix.linux-builder.ephemeral = true;
   nix.settings.trusted-users = [ "root" "nico" "@admin" ];
   nix.optimise.automatic = false;

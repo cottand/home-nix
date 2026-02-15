@@ -8,6 +8,8 @@
     shellAliases."ohno" = "fix_last_command";
   };
 
+  home.packages = [ pkgs.claude-code ];
+
   home.file.".claude/settings.json" = {
     text = builtins.toJSON {
       includeCoAuthoredBy = false;
@@ -24,6 +26,12 @@
         deny = [ ];
       };
     };
+  };
+
+
+
+  home.file.".claude/agents/mlstruct-expert.md" = {
+    source = ./claude/mlstruct-expert.md;
   };
 
 
