@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }: {
   programs.git = {
+    signing.format = "openpgp";
     enable = true;
     settings.user.name = "cottand";
     settings.user.email = "nico.dc@outlook.com";

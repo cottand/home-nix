@@ -4,9 +4,6 @@
   # for use within config
   home.packages = [ pkgs.nil pkgs.nixpkgs-fmt pkgs.gh pkgs.gleam ];
 
-  programs.zed-editor = {
-    enable = true;
-  };
   programs.vscode = {
     enable = true;
     profiles.default.extensions = with pkgs.vscode-extensions; [
