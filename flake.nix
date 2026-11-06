@@ -35,6 +35,7 @@
           ./home/gnome-dconf.nix
           ./home/ideavim.nix
           ./home/claude.nix
+          ./home/git.nix
           ./modules/darwinAppSymlink.nix
         ];
         cli.imports = [

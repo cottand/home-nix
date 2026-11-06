@@ -9,7 +9,7 @@
     pkgs.vim
     pkgs.iterm2
     pkgs.git
-    pkgs.python311Packages.pip
+   # pkgs.python311Packages.pip
     pkgs.rectangle
 
     (pkgs.callPackage ./packages/vfkit.nix { })
